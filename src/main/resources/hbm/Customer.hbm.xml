@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+        PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping  package="edu.jxufe.lvxi.entity">
+
+    <class name="Customer" table="tb_customer" lazy="true"  >
+
+        <id name="id"  >
+            <generator class="identity"/>
+        </id>
+        <property name="name"  lazy="true" />
+        <many-to-one  name="homeAddress"  column="homeAddress"  fetch="join"   class="edu.jxufe.lvxi.entity.Address" cascade="all" unique="true"  />
+        <many-to-one name="comAddress" column="comAddress" class="edu.jxufe.lvxi.entity.Address" cascade="all" unique="true"  />
+
+    </class>
+</hibernate-mapping>
